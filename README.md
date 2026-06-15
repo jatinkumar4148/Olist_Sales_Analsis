@@ -41,16 +41,16 @@ graph TD
     H --> I["📈 Dashboard Design<br/>Create Report Pages"]
     I --> J["✅ Publish & Share<br/>Dashboard Gallery"]
     
-    style A fill:#e1f5ff
-    style B fill:#fff9c4
-    style C fill:#fff9c4
-    style D fill:#fff9c4
-    style E fill:#fff9c4
-    style F fill:#fff9c4
-    style G fill:#f3e5f5
-    style H fill:#f3e5f5
-    style I fill:#ffe0b2
-    style J fill:#c8e6c9
+    style A fill:#FF6B6B,stroke:#C92A2A,stroke-width:3px,color:#fff
+    style B fill:#FFA500,stroke:#FF8C00,stroke-width:2px,color:#fff
+    style C fill:#FFB84D,stroke:#FF8C00,stroke-width:2px,color:#fff
+    style D fill:#FFD166,stroke:#FFA500,stroke-width:2px,color:#333
+    style E fill:#FFF44F,stroke:#FFC107,stroke-width:2px,color:#333
+    style F fill:#A7DE6F,stroke:#78B855,stroke-width:2px,color:#333
+    style G fill:#4ECDC4,stroke:#00A89D,stroke-width:3px,color:#fff
+    style H fill:#6C5CE7,stroke:#5F3DC4,stroke-width:2px,color:#fff
+    style I fill:#FF9FF3,stroke:#E056FD,stroke-width:2px,color:#fff
+    style J fill:#2ECC71,stroke:#27AE60,stroke-width:3px,color:#fff
 ```
 
 ### Step-by-Step Workflow
