@@ -18,6 +18,41 @@ The goal is to transform raw e-commerce transaction data into a scalable analyti
 
 ## Workflow Overview
 
+### Workflow Flowchart
+
+```mermaid
+graph TD
+    A[("📊 CSV Data Files<br/>Excel_Dataset/")] --> B["1️⃣ Data Acquisition"]
+    B --> C["Validate & Load Files"]
+    C --> D["2️⃣ Data Preparation<br/>SQL Scripts"]
+    D --> E["Create Tables"]
+    E --> F["Import Data"]
+    F --> G["Index & Optimize"]
+    G --> H["3️⃣ Data Modeling<br/>Power BI"]
+    H --> I["Build Relationships"]
+    I --> J["Create Views"]
+    J --> K["4️⃣ Dashboard Design"]
+    K --> L["Executive Overview"]
+    L --> M["Sales Trends"]
+    M --> N["Category Analysis"]
+    N --> O["Customer Insights"]
+    O --> P["Logistics & Delivery"]
+    P --> Q["Reviews & Feedback"]
+    Q --> R["Payment Methods"]
+    R --> S["Seller Performance"]
+    S --> T["Drilldown Analysis"]
+    T --> U["5️⃣ Validation & Delivery"]
+    U --> V[("✅ Published Dashboards<br/>Dashboards/")]
+    
+    style A fill:#e1f5ff
+    style V fill:#c8e6c9
+    style D fill:#fff9c4
+    style H fill:#f3e5f5
+    style K fill:#ffe0b2
+```
+
+### Step-by-Step Workflow
+
 ### 1. Data Acquisition
 
 Collect the source CSV datasets from `Excel_Dataset/` and confirm file integrity before import.
