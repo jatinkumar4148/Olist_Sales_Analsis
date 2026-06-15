@@ -10,6 +10,15 @@ This repository demonstrates a professional Power BI analytics solution built ar
 
 The goal is to transform raw e-commerce transaction data into a scalable analytics workflow and executive-ready visualization suite.
 
+## Technology Stack
+
+- **Data Storage**: PostgreSQL database
+- **Connection Method**: Power BI Direct Query (real-time, live connection)
+- **Data Source**: CSV files (Olist dataset)
+- **BI Platform**: Microsoft Power BI Desktop
+- **Data Preparation**: SQL scripts for ETL and view creation
+- **Architecture**: Lakehouse pattern with PostgreSQL
+
 ## Project Structure
 
 - `Excel_Dataset/` — source CSV files from the Olist dataset
@@ -22,12 +31,12 @@ The goal is to transform raw e-commerce transaction data into a scalable analyti
 
 ```mermaid
 graph TD
-    A[("📊 Data Collection<br/>CSV Files from Excel_Dataset")] --> B["📋 Table Creation<br/>All Queries/Query/Create Table.sql"]
-    B --> C["➕ Insert Data into Tables<br/>All Queries/Query/For Importing 10lac Data.sql"]
+    A[("📊 Data Collection<br/>CSV Files from Excel_Dataset")] --> B["📋 Table Creation<br/>All Queries/Query/Create Table.sql<br/>PostgreSQL"]
+    B --> C["➕ Insert Data into Tables<br/>All Queries/Query/For Importing 10lac Data.sql<br/>CSV → PostgreSQL"]
     C --> D["🔑 Create Foreign Keys<br/>All Queries/Query/Foreign Table.sql"]
     D --> E["⚡ Create Indexes<br/>All Queries/Query/Indexing.sql"]
     E --> F["📊 Create View Tables<br/>All Queries/Query/View Table.sql"]
-    F --> G[("🔌 Power BI Direct Query<br/>Connect to Database")]
+    F --> G[("🔌 Power BI Direct Query<br/>Live Connection to PostgreSQL")]
     G --> H["🎯 Data Modeling<br/>Build Relationships & Hierarchies"]
     H --> I["📈 Dashboard Design<br/>Create Report Pages"]
     I --> J["✅ Publish & Share<br/>Dashboard Gallery"]
@@ -102,14 +111,22 @@ Run `All Queries/Query/View Table.sql` to:
 - Prepare optimized data structures for Power BI
 - Simplify Power BI Direct Query connections
 
-### 7. Power BI Direct Query
+### 7. Power BI Direct Query Connection
 
-Connect Power BI to the prepared database:
-- Establish a live connection to the database
-- Use Direct Query mode for real-time data updates
-- Reference views and tables created in step 6
-- Build a semantic model with relationships
-- Create calculations and measures
+Connect Power BI to the PostgreSQL database using **Direct Query mode**:
+- Establish a live connection using PostgreSQL connector in Power BI Desktop
+- Configure Direct Query to query tables and views directly from PostgreSQL
+- Queries execute in real-time against the database (no data import)
+- Reference the optimized views created in step 6 for better performance
+- Configure connection settings (host, database, credentials, timeout)
+- Build a semantic model with relationships and calculations
+- Direct Query ensures data is always fresh without manual refreshes
+
+**Benefits of Direct Query**:
+- Real-time data updates without importing into Power BI
+- Reduced file size (no data stored locally)
+- Scalability for large datasets
+- Single source of truth from PostgreSQL database
 
 ### 8. Data Modeling
 
@@ -197,6 +214,15 @@ Seller-level performance monitoring to identify the strongest partners and surfa
 ![Drilldown Analysis](Dashboards/Drilldown%209.png)
 
 Detailed drilldown page for interactive investigation across products, customers, sellers, and orders.
+
+## Technology Stack
+
+- **Database**: PostgreSQL 18
+- **Data Source**: CSV files (9 datasets)
+- **Data Loading**: SQL scripts with bulk import
+- **Visualization**: Power BI Desktop
+- **Connection Mode**: PostgreSQL native connector with table import
+- **Query Optimization**: Indexed views and foreign key relationships
 
 ## Data Sources
 
