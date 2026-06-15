@@ -22,68 +22,125 @@ The goal is to transform raw e-commerce transaction data into a scalable analyti
 
 ```mermaid
 graph TD
-    A[("📊 CSV Data Files<br/>Excel_Dataset/")] --> B["1️⃣ Data Acquisition"]
-    B --> C["Validate & Load Files"]
-    C --> D["2️⃣ Data Preparation<br/>SQL Scripts"]
-    D --> E["Create Tables"]
-    E --> F["Import Data"]
-    F --> G["Index & Optimize"]
-    G --> H["3️⃣ Data Modeling<br/>Power BI"]
-    H --> I["Build Relationships"]
-    I --> J["Create Views"]
-    J --> K["4️⃣ Dashboard Design"]
-    K --> L["Executive Overview"]
-    L --> M["Sales Trends"]
-    M --> N["Category Analysis"]
-    N --> O["Customer Insights"]
-    O --> P["Logistics & Delivery"]
-    P --> Q["Reviews & Feedback"]
-    Q --> R["Payment Methods"]
-    R --> S["Seller Performance"]
-    S --> T["Drilldown Analysis"]
-    T --> U["5️⃣ Validation & Delivery"]
-    U --> V[("✅ Published Dashboards<br/>Dashboards/")]
+    A[("📊 Data Collection<br/>CSV Files from Excel_Dataset")] --> B["📋 Table Creation<br/>All Queries/Query/Create Table.sql"]
+    B --> C["➕ Insert Data into Tables<br/>All Queries/Query/For Importing 10lac Data.sql"]
+    C --> D["🔑 Create Foreign Keys<br/>All Queries/Query/Foreign Table.sql"]
+    D --> E["⚡ Create Indexes<br/>All Queries/Query/Indexing.sql"]
+    E --> F["📊 Create View Tables<br/>All Queries/Query/View Table.sql"]
+    F --> G[("🔌 Power BI Direct Query<br/>Connect to Database")]
+    G --> H["🎯 Data Modeling<br/>Build Relationships & Hierarchies"]
+    H --> I["📈 Dashboard Design<br/>Create Report Pages"]
+    I --> J["✅ Publish & Share<br/>Dashboard Gallery"]
     
     style A fill:#e1f5ff
-    style V fill:#c8e6c9
+    style B fill:#fff9c4
+    style C fill:#fff9c4
     style D fill:#fff9c4
+    style E fill:#fff9c4
+    style F fill:#fff9c4
+    style G fill:#f3e5f5
     style H fill:#f3e5f5
-    style K fill:#ffe0b2
+    style I fill:#ffe0b2
+    style J fill:#c8e6c9
 ```
 
 ### Step-by-Step Workflow
 
-### 1. Data Acquisition
+### 1. Data Collection
 
-Collect the source CSV datasets from `Excel_Dataset/` and confirm file integrity before import.
+Extract and validate the source CSV datasets from `Excel_Dataset/`:
+- `olist_customers_dataset.csv`
+- `olist_orders_dataset.csv`
+- `olist_order_items_dataset.csv`
+- `olist_products_dataset.csv`
+- `olist_sellers_dataset.csv`
+- `olist_payments_dataset.csv`
+- `olist_reviews_dataset.csv`
+- `olist_geolocation_dataset.csv`
+- `product_category_name_translation.csv`
 
-### 2. Data Preparation
+### 2. Table Creation
 
-Use the scripts in `All Queries/Query/` to:
+Run `All Queries/Query/Create Table.sql` to:
+- Define schema and table structures in your database
+- Set up columns, data types, and constraints
+- Prepare staging tables for data import
+- Establish the foundation for the data warehouse
 
-- create database tables for each dataset
-- import large CSV volumes (including support for 1,000,000+ rows)
-- define foreign keys and staging views
-- optimize query performance with indexes and transformed views
+### 3. Insert Data into Tables
 
-### 3. Data Modeling
+Execute `All Queries/Query/For Importing 10lac Data.sql` to:
+- Load CSV data into the created tables
+- Support large-volume imports (1,000,000+ rows)
+- Use bulk insert operations for optimal performance
+- Validate data integrity during import
 
-Build a Power BI data model that connects:
+### 4. Create Foreign Keys
 
-- orders to customers and sellers
-- order items to products and categories
-- orders to payments and reviews
-- customer locations to geolocation data
+Run `All Queries/Query/Foreign Table.sql` to:
+- Define relationships between tables
+- Link orders to customers and sellers
+- Connect order items to products
+- Establish referential integrity constraints
+- Enable data consistency across the warehouse
 
-This model supports fast cross-filtering, trend analysis, and drilldown capabilities.
+### 5. Create Indexes
 
-### 4. Dashboard Design
+Execute `All Queries/Query/Indexing.sql` to:
+- Create primary keys on unique identifiers
+- Build indexes on frequently queried columns
+- Optimize join performance between tables
+- Improve overall query execution speed
+- Support faster Power BI data refresh
 
-Develop a set of Power BI report pages that answer executive, operational, and tactical questions.
+### 6. Create View Tables
 
-### 5. Validation & Delivery
+Run `All Queries/Query/View Table.sql` to:
+- Build aggregated and transformed views
+- Create flattened structures for reporting
+- Pre-calculate common metrics
+- Prepare optimized data structures for Power BI
+- Simplify Power BI Direct Query connections
 
-Validate the dashboards using data quality checks, cross-table reconciliations, and performance reviews. Use the included screenshots as a reference for layout, navigation, and storytelling.
+### 7. Power BI Direct Query
+
+Connect Power BI to the prepared database:
+- Establish a live connection to the database
+- Use Direct Query mode for real-time data updates
+- Reference views and tables created in step 6
+- Build a semantic model with relationships
+- Create calculations and measures
+
+### 8. Data Modeling
+
+In Power BI, build the analytical data model:
+- Create relationships between dimensions and facts
+- Define hierarchies (e.g., Date, Geography, Product Category)
+- Add calculated columns and measures
+- Set up row-level security if needed
+- Optimize for report performance
+
+### 9. Dashboard Design
+
+Develop Power BI report pages covering:
+- Executive Overview dashboard
+- Sales Trends analysis
+- Category vs Product comparison
+- Customer analytics and segmentation
+- Delivery and logistics monitoring
+- Review sentiment analysis
+- Payment method insights
+- Seller performance tracking
+- Drilldown analysis capabilities
+
+### 10. Publish & Share
+
+Validate and publish dashboards:
+- Test cross-filtering and interactions
+- Validate data accuracy and reconciliation
+- Set up refresh schedules
+- Share with stakeholders
+- Monitor performance and usage
 
 ## Dashboard Gallery (Ordered)
 
